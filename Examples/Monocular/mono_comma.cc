@@ -49,7 +49,7 @@ int main(int argc, char **argv)
     // Retrieve paths to images
     vector<string> vstrImageFilenames;
     vector<double> vTimestamps;
-    LoadImages(string(argv[3]), int(argv[4]), vstrImageFilenames, vTimestamps);
+    LoadImages(string(argv[3]), stoi(argv[4]), vstrImageFilenames, vTimestamps);
 
     int nImages = vstrImageFilenames.size();
 
@@ -129,6 +129,6 @@ void LoadImages(const string &strPathToSequence, int nFrames, vector<string> &vs
     for (int i = 0; i < nFrames; i++)
     {
         vTimestamps.push_back(i * 5000000);
-        vstrImageFilenames.push_back(strPathToSequence + '/' + string(i + 1) + '.png');
+        vstrImageFilenames.push_back(strPathToSequence + "/" + to_string(i + 1) + ".png");
     }
 }
